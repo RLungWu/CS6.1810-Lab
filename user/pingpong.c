@@ -10,7 +10,7 @@ void main(int argc, char *argv[]){
     pipe(p2);
 
     fpid = getpid();
-    if((cpid = fork()) < 0){
+    if((cpid = fork()) < 0){//fork error
         fprintf(2, "fork error\n");
         exit(1);
     }
@@ -26,7 +26,8 @@ void main(int argc, char *argv[]){
 
         read(p1[0], readbuf, 4);
         close(p1[0]);
-        printf("%d: received %s \n", cpid, readbuf);
+        printf("%d: received %s\n", cpid, readbuf);
+        //printf("4: received %s\n", cpid, readbuf);
     }else{ //parent process
         close(0);
         close(p1[0]);
@@ -41,7 +42,7 @@ void main(int argc, char *argv[]){
     }
 
     free(readbuf);
-    exit(0)
+    exit(0);
 
 
 }

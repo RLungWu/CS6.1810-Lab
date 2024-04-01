@@ -10,7 +10,7 @@ void pipeline(int lfd){
     //last block
     if(!nb) return; 
     
-    printf("prime%d \n", prime);
+    printf("prime %d \n", prime);
     pipe(rfd);
 
     if((pid=fork()) == 0){
